@@ -1,0 +1,1 @@
+# spektar-wordpress Wordpress Theme
