@@ -5,17 +5,55 @@ Template Name: Page Home
  
 get_header(); 
 
-$euro_otkup = get_post_meta( get_the_ID(), 'euro_otkup', true );
-$euro_prodaja = get_post_meta( get_the_ID(), 'euro_prodaja', true );
-$euro_srednja_vrednost = get_post_meta( get_the_ID(), 'euro_srednja_vrednost', true );
+//tabela
+$euro_otkup = get_field('euro_otkup');
+$euro_prodaja = get_field( 'euro_prodaja');
+$euro_srednja_vrednost =get_field( 'euro_srednja_vrednost');
 
-$chf_otkup = get_post_meta( get_the_ID(), 'chf_otkup', true );
-$chf_prodaja = get_post_meta( get_the_ID(), 'chf_prodaja', true );
-$chf_srednja_vrednost = get_post_meta( get_the_ID(), 'chf_srednja_vrednost', true );
+$chf_otkup = get_field( 'chf_otkup');
+$chf_prodaja = get_field('chf_prodaja');
+$chf_srednja_vrednost = get_field('chf_srednja_vrednost');
 
-$usd_otkup = get_post_meta( get_the_ID(), 'usd_otkup', true );
-$usd_prodaja = get_post_meta( get_the_ID(), 'usd_prodaja', true );
-$usd_srednja_vrednost = get_post_meta( get_the_ID(), 'usd_srednja_vrednost', true ); 
+$usd_otkup = get_field( 'usd_otkup');
+$usd_prodaja = get_field( 'usd_prodaja');
+$usd_srednji_kurs = get_field('usd_srednji_kurs');
+
+//usluge
+$prvi = get_field( 'prvi');
+$drugi = get_field( 'drugi');
+$treci = get_field( 'treci');
+$cetvrti = get_field( 'cetvrti');
+$peti = get_field( 'peti');
+$sesti = get_field( 'sesti');
+
+//nas posao
+$posao_jedan_naslov =get_field('posao_jedan_naslov');
+$posao_jedan_tekst =get_field('posao_jedan_tekst');
+
+$posao_dva_naslov=get_field('posao_dva_naslov');	
+	
+
+$posao_dva_tekst	=get_field('posao_dva_tekst');
+
+
+$posao_tri_naslov=get_field('posao_tri_naslov');	
+	
+
+$posao_tri_tekst=get_field('posao_tri_tekst');
+
+$posao_cetiri_naslov	=get_field('posao_cetiri_naslov');
+
+$posao_cetiri_tekst	=get_field('posao_cetiri_tekst');
+
+$posao_pet_naslov=get_field('posao_pet_naslov');
+
+$posao_pet_tekst=get_field('posao_pet_tekst');
+
+$posao_sest_naslov=get_field('posao_sest_naslov');
+
+$posao_sest_tekst=get_field('posao_sest_tekst');
+
+//$kontakt = get_post_meta( get_the_ID(), 'kontakt', true );
 ?>
 
 <div class="jumbotron text-center">
@@ -93,8 +131,18 @@ $usd_srednja_vrednost = get_post_meta( get_the_ID(), 'usd_srednja_vrednost', tru
 		}
 		?>
 		</td>
-      <td>105,00</td>
-      <td>103.28</td>
+      <td><?php 
+		 // Checks and displays the retrieved value
+		if( !empty( $usd_prodaja) ) {
+			echo $usd_prodaja;
+		}
+		?></td>
+      <td><?php 
+		 // Checks and displays the retrieved value
+		if( !empty( $usd_srednji_kurs) ) {
+			echo $usd_srednji_kurs;
+		}
+		?></td>
     </tr>
   </tbody>
 </table>
@@ -140,30 +188,60 @@ $usd_srednja_vrednost = get_post_meta( get_the_ID(), 'usd_srednja_vrednost', tru
   <div class="row">
     <div class="col-sm-12 col-md-4 hvr-sweep-to-right">
     <i class="fa fa-user-md fa-4x" aria-hidden="true"></i> 
-      <p>Prodaja putnog zdravstvenog osiguranja</p>
+      <p>
+		  <?php // Checks and displays the retrieved value
+		if( !empty( $prvi) ) {
+			echo $prvi;
+		} ?>
+		</p>
     </div>
     <div class="col-sm-12 col-md-4 hvr-sweep-to-right">
      <i class="fa fa-eur  fa-4x" aria-hidden="true"></i> 
-      <p>RIA transfer novca slanje i prijem novca</p>
+      <p>
+		  <?php // Checks and displays the retrieved value
+		if( !empty( $drugi) ) {
+			echo $drugi;
+		} ?>
+		</p>
     </div>
     <div class="col-sm-12 col-md-4 hvr-sweep-to-right">
     <i class="fa fa-money fa-4x" aria-hidden="true"></i> 
-      <p>Menjačko poslovanje</p>
+      <p>
+		  <?php // Checks and displays the retrieved value
+		if( !empty( $treci) ) {
+			echo $treci;
+		} ?>
+		</p>
     </div>
   </div>
   <br><br>
   <div class="row">
     <div class="col-xs-12 col-md-4 hvr-sweep-to-right">
     <i class="fa fa-lock fa-4x" aria-hidden="true"></i> 
-      <p>Kontrola novčanica</p>
+      <p><p>
+		  <?php // Checks and displays the retrieved value
+		if( !empty( $cetvrti) ) {
+			echo $cetvrti;
+		} ?>
+		</p>
     </div>
     <div class="col-xs-12 col-md-4 hvr-sweep-to-right">
     <i class="fa fa-usd fa-4x" aria-hidden="true"></i>
-      <p>Platni promet</p>
+     <p>
+		  <?php // Checks and displays the retrieved value
+		if( !empty( $peti) ) {
+			echo $peti;
+		} ?>
+		</p>
     </div>
     <div class="col-xs-12 col-md-4 hvr-sweep-to-right"> 
       <i class="fa fa-thumbs-up fa-4x" aria-hidden="true"></i>
-      <p>Plaćajte uz minimalnu proviziju</p>
+     <p>
+		  <?php // Checks and displays the retrieved value
+		if( !empty( $sesti) ) {
+			echo $sesti;
+		} ?>
+		</p>
     </div>
   </div>
 </div>
@@ -172,32 +250,32 @@ $usd_srednja_vrednost = get_post_meta( get_the_ID(), 'usd_srednja_vrednost', tru
 <div id="blog" class="container-fluid text-center bg-grey">
  
  
- 
+ <!--
   <h2>Blog</h2><br> 
   <div class="line-holder">
     <div class="the-line">
     </div>
-  </div>
+  </div>-->
   <?php 
-      $the_band = new WP_Query(array( 
+    /*  $post = new WP_Query(array( 
        'posts_per_page' => 3, 
        )); 
-      while ( $the_band->have_posts() ) : 
-      $the_band->the_post();
+      while ( $post->have_posts() ) : 
+      $post->the_post();*/
      ?>
-     <div class="col-sm-4">
+     <!-- <div class="col-sm-4">
       <div class="thumbnail">
       <a class="active-link circle-img-width" href="<?php the_permalink();?>">
       <?php the_post_thumbnail('thumbnail',['class' => 'img-circle' ]);?> 
       </a>
-      <br>
-          <a class="btn  btn-primary" role="button" href="<?php the_permalink();?>"><?php the_title();?></a> 
+      <br>-->
+         <!--  <a class="btn  btn-primary" role="button" href="<?php //the_permalink();?>"><?php //the_title();?></a> 
         </div>
       
-    </div>
-    <?php endwhile; ?>
+    </div>-->
+    <?php //endwhile; ?>
  
-<!-- Container (Businessg Section) -->
+<!-- Container (Business Section) -->
 <div id="posao" class="container-fluid parallax2">
   <div class="text-center">
     <h2>Naš posao</h2> 
@@ -210,10 +288,22 @@ $usd_srednja_vrednost = get_post_meta( get_the_ID(), 'usd_srednja_vrednost', tru
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading">
-          <h1>Menjačko poslovanje</h1>
+          <h3> <?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_jedan_naslov ) ) {
+			echo $posao_jedan_naslov;
+		}
+	  ?></h3>
         </div>
         <div class="panel-body">
-          <p> Novac menjajte na sigurnom mestu - brzo, jednostavno i diskretno</p>
+          <p> 
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_jedan_tekst) ) {
+			echo $posao_jedan_tekst;
+		}
+	  ?>
+			</p>
         </div>
          
       </div>      
@@ -221,20 +311,46 @@ $usd_srednja_vrednost = get_post_meta( get_the_ID(), 'usd_srednja_vrednost', tru
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading">
-          <h1>Platni <br>promet </h1>
+          <h3><?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_dva_naslov ) ) {
+			echo $posao_dva_naslov;
+		}
+	  ?></h3>
         </div>
         <div class="panel-body">
-          <p>Plaćanje svih obaveza (računi, struja, plin, grejanje, telefoni (fiksni i mobilni).</p>
+          <p>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_dva_tekst ) ) {
+			echo $posao_dva_tekst;
+		}
+	  ?>
+			</p>
         </div>
       </div>      
     </div>       
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading">
-          <h1>Putničko osiguranje</h1>
+          <h3> 
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_tri_naslov ) ) {
+			echo $posao_tri_naslov;
+		}
+	  ?>
+			</h3>
         </div>
         <div class="panel-body">
-          <p>U slučaju iznenadne bolesti ili povrede, putničko zdravstveno osiguranje garantuje vam pokriće</p>
+          <p>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_tri_tekst ) ) {
+			echo $posao_tri_tekst;
+		}
+	  ?>
+			</p>
         </div>
       </div>            
     </div>    
@@ -244,30 +360,72 @@ $usd_srednja_vrednost = get_post_meta( get_the_ID(), 'usd_srednja_vrednost', tru
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading">
-          <h1>RIA transfer novca</h1>
+          <h3>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_cetiri_naslov ) ) {
+			echo $posao_cetiri_naslov;
+		}
+	  ?>
+			</h3>
         </div>
         <div class="panel-body">
-          <p>Više od 30 godina Ria Money Transfer sa velikim uspehom pruža brz, siguran i povoljan način za prijem i slanje novca korisnicima širom sveta.</p>
+          <p>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_cetiri_tekst ) ) {
+			echo $posao_cetiri_tekst;
+		}
+	  ?>
+			</p>
         </div>
       </div>      
     </div>     
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading">
-          <h1>Fotokopiranje crno-belo ili u boji</h1>
+          <h3>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_pet_naslov ) ) {
+			echo $posao_pet_naslov;
+		}
+	  ?>
+			</h3>
         </div>
         <div class="panel-body">
-          <p>Posedujemo aparate za fotokopiranje Canon, Ricoh i Hp najnovije generacije i možemo slobodno reći da su u nekim slučajevima naše kopije bolje od originala</p>
+          <p>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_pet_tekst ) ) {
+			echo $posao_pet_tekst;
+		}
+	  ?>
+			</p>
         </div>
       </div>      
     </div>       
     <div class="col-sm-4 col-xs-12">
       <div class="panel panel-default text-center">
         <div class="panel-heading">
-          <h1>Kontrola novčanica</h1>
+          <h3>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_sest_naslov ) ) {
+			echo $posao_sest_naslov;
+		}
+	  ?>
+			</h3>
         </div>
         <div class="panel-body">
-          <p>Detektor ima nekoliko nacina detekcije: infra crvenu kontrolu; magnetnu kontrolu; kontrola transparetnosti papira; kontrola širine novcanice;</p>
+          <p>
+			<?php
+	 // Checks and displays the retrieved value
+		if( !empty( $posao_sest_tekst ) ) {
+			echo $posao_sest_tekst;
+		}
+	  ?>
+			</p>
         </div>
       </div>      
     </div>    

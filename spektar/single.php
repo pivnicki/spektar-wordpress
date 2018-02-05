@@ -51,5 +51,5 @@
 	</div>
 	</div>
 	 </div>
-<!--/.fluid-container-->
+<!--/.container-->
 <?php get_footer();?>
